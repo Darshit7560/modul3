@@ -1,0 +1,23 @@
+1-SELECT * FROM `emp` WHERE JOB="CLERK"; 
+2-SELECT * FROM `emp` ORDER BY deptno ASC , job DESC;
+3-SELECT DISTINCT job FROM emp ORDER BY job DESC; 
+4-SELECT * FROM `emp` WHERE hiredate <"1981-01-01";
+5-SELECT `Empno`, `ename`, `sal`, 'sal/30','12*sal' annsal FROM `emp` ORDER BY annsal ASC; 
+6-SELECT `Empno`, `ename`, `sal` FROM `emp` WHERE mgr="7839"; 
+7-SELECT * FROM `emp` WHERE comm>sal; 
+8-SELECT * FROM `emp` WHERE job="CLERK" or job="ANALYST" ORDER BY job DESC;
+9-SELECT * FROM `emp` WHERE 12*sal BETWEEN 22000 and 45000;
+10-SELECT ename FROM `emp` WHERE ename LIKE 'S%'AND length(ename) = 5; 
+11-SELECT * FROM `emp` WHERE Empno NOT LIKE '78%';
+12-SELECT * FROM `emp` WHERE  job='CLERK' AND deptno="20";
+13-SELECT * FROM emp w, emp m WHERE w.empno=w.mgr AND w.hiredate>m.hiredate;
+14-SELECT * FROM `emp` WHERE deptno="20" AND job IN (SELECT DISTINCT job FROM emp WHERE deptno="10")
+15-SELECT DISTINCT * FROM `emp` WHERE sal IN (SELECT sal FROM emp WHERE ename IN('FORD','SMITH')) and ename not IN ('FORD','SMITH') ORDER BY sal DESC;
+16-SELECT * FROM `emp` WHERE job IN(SELECT job from emp WHERE ename='SMITH' or ename='ALLEN'); 
+17-SELECT e.job from emp e WHERE e.deptno=10 AND e.job NOT IN (SELECT job FROM emp WHERE deptno =20)	;			
+18-SELECT MAX(sal ) FROM `emp`; 
+19-SELECT * FROM `emp` WHERE sal in (SELECT max(sal) from emp);
+20-SELECT SUM(sal) FROM `emp` WHERE empno IN(SELECT mgr from emp);
+21-SELECT * FROM `emp` WHERE ename LIKE 'A%'; 
+22-SELECT * FROM `emp` WHERE sal in (SELECT MIN(sal) from emp GROUP BY job)ORDER BY sal ASC;
+
